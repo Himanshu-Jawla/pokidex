@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+  <title>Pokédex</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://raw.githubusercontent.com">
+  <link rel="preconnect" href="https://pokeapi.co">
+</head>
+<body>
+  <!-- App Shell -->
+  <header class="site-header">
+    <h1 class="brand">Pokédex</h1>
+
+    <div class="controls">
+      <div class="search">
+        <input id="searchInput" type="search" placeholder="Search by name or ID…" aria-label="Search Pokémon" />
+        <button id="searchBtn" class="btn" aria-label="Search">Search</button>
+      </div>
+
+      <div class="filters">
+        <select id="typeFilter" aria-label="Filter by type">
+          <option value="">All types</option>
+          <!-- Filled by JS -->
+        </select>
+
+        <select id="genFilter" aria-label="Filter by generation">
+          <option value="">All generations</option>
+          <option value="1">Gen 1 (001–151)</option>
+          <option value="2">Gen 2 (152–251)</option>
+          <option value="3">Gen 3 (252–386)</option>
+          <option value="4">Gen 4 (387–493)</option>
+          <option value="5">Gen 5 (494–649)</option>
+          <option value="6">Gen 6 (650–721)</option>
+          <option value="7">Gen 7 (722–809)</option>
+          <option value="8">Gen 8 (810–898)</option>
+          <option value="9">Gen 9 (899–1017+)</option>
+        </select>
+
+        <label class="toggle">
+          <input id="darkToggle" type="checkbox" />
+          <span class="toggle-ui"></span>
+          <span>Dark</span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Status / feedback -->
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <!-- Card grid -->
+    <section id="grid" class="grid" aria-label="Pokémon results"></section>
+
+    <!-- Pagination -->
+    <nav class="pagination" aria-label="Pagination">
+      <button id="prevBtn" class="btn" disabled>Prev</button>
+      <span id="pageInfo" class="page-info">Page 1</span>
+      <button id="nextBtn" class="btn">Next</button>
+    </nav>
+  </main>
+
+  <aside class="favorites-panel" aria-label="Favorites">
+    <div class="fav-header">
+      <h2>Favorites</h2>
+      <button id="clearFavs" class="btn ghost">Clear</button>
+    </div>
+    <ul id="favList" class="fav-list"></ul>
+  </aside>
+
+  <!-- Modal for details -->
+  <dialog id="detailModal" class="modal">
+    <form method="dialog" class="modal-card">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <div id="modalContent" class="modal-content">
+        <!-- Filled by JS -->
+      </div>
+    </form>
+  </dialog>
+
+  <footer>
+    © 2025 <span>Himanshu Jawla</span> | Data from 
+    <a href="https://pokeapi.co/" target="_blank" rel="noopener">PokéAPI</a>
+</footer>
+
+
+  <script src="script.js" defer></script>
+</body>
+</html>
